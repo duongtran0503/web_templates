@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+}
+body {
+  background-color: rgb(34, 34, 35);
+}
+.navigation {
+  position: fixed;
+  width: 200px;
+  height: 60px;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+.toggle {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.toggle::before {
+  position: absolute;
+  content: "menu";
+  margin-right: 40px;
+}
+.toggle.active::before {
+  content: "close";
+}
+.toggle span {
+  position: relative;
+  margin-right: 10px;
+  width: 15px;
+  border: 1px solid rgb(245, 0, 0);
+  transform: translateY(-50%);
+  background-color: black;
+}
+.toggle span::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  border: 1px solid rgb(245, 0, 0);
+
+  background-color: rgb(245, 0, 0);
+  top: 8px;
+}
+.toggle.active span {
+  transform: rotate(45deg);
+}
+.toggle.active span::after {
+  transform: rotate(-90deg);
+  top: 0;
+}
+ul li {
+  position: relative;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(250px);
+  transition-delay: calc(0.1s * var(--i));
+}
+.navigation.active ul li {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+.navigation ul {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navigation ul li {
+  width: 100%;
+  height: calc(250px / 5);
+  background-color: #fff;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
