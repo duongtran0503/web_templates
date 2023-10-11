@@ -6,7 +6,6 @@ const options = {
   listInput,
   listInputBox,
 };
-console.log(listInput);
 const Validator = (options) => {
   options.listInput.forEach((element, index) => {
     let errorMessage = options.listInputBox[index].lastElementChild;
